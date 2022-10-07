@@ -12,7 +12,7 @@ public class Main {
         System.out.println(employee1);
 
         Employee[] firm = new Employee[10];
-        firm[0] = new Employee("Ivanov Petr Sergeevich", 2, 24000);
+        firm[0] = new Employee("Ivanov Petr Sergeevich", 2, 54000);
         firm[1] = new Employee("Petrov Ivan Olegovich", 1, 32000);
         firm[2] = new Employee("Glinka Sergei Ivanovich", 4, 22000);
         firm[3] = new Employee("Sergeev Petr Borisovich", 3, 41000);
@@ -28,6 +28,8 @@ public class Main {
         getSum(firm);
         getMax(firm);
         getMin(firm);
+        getMiddleSum(firm);
+        getAllNames(firm);
     }
 
     public static int getSum(Employee[] employees) {
@@ -48,9 +50,10 @@ public class Main {
                 worker = employees[i].getName();
             }
         }
-        System.out.println("максимальная зп - " + maxSalary +" у сотрудника "+ worker);
+        System.out.println("Максимальная зп - " + maxSalary + " у сотрудника " + worker);
         return maxSalary;
     }
+
     public static int getMin(Employee[] employees) {
         int maxSalary = 1000000;
         String worker = "null";
@@ -60,7 +63,25 @@ public class Main {
                 worker = employees[i].getName();
             }
         }
-        System.out.println("миниимальная зп - " + maxSalary +" у сотрудника "+ worker);
+        System.out.println("Миниимальная зп - " + maxSalary + " у сотрудника " + worker);
         return maxSalary;
     }
+
+    public static int getMiddleSum(Employee[] employees) {
+        int sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            sum = sum + employees[i].getSalary();
+        }
+        System.out.println("Средняя зарплата на фирме - " + sum / employees.length);
+        return sum;
+    }
+
+    public static String getAllNames(Employee[] employees) {
+        String all = "null";
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i].getName());
+        }
+        return all;
+    }
 }
+
